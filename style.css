@@ -27,25 +27,20 @@ body {
     display: grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns: repeat(3, auto);
     transition-timing-function: ease;
     transition: all 500ms;
     place-items: center;
-    gap: 0rem;
+    grid-gap:0;
+}
+
+.parent:not(.on):not(.off) {
+    grid-gap: 0rem;
 }
 
 .on {
     transition-timing-function: ease;
-    grid-gap: 10rem;
 }
-
-.off {
-    grid-column: 1;
-    grid-row: 1;
-}
-
 .card {
-    transition: 300ms;
     width: 280px;
     height: 390px;
     background-color: #242527;
@@ -62,10 +57,8 @@ body {
     cursor: pointer;
 }
 
-.offcard {
-    grid-column: 2;
-    grid-row: 1;
-}
+
+
 
 .card:not(.offcard):not(.oncard) {
     grid-column: 2;
@@ -190,7 +183,6 @@ body {
 
 .oncard:nth-child(1) {
     transform: rotate(10deg);
-    position: relative;
 }
 
 .oncard:nth-child(2) {
@@ -199,11 +191,71 @@ body {
 
 .oncard:nth-child(3) {
     transform: rotate(5deg);
-    position: relative;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) and (min-width: 910px) {
     .on {
         grid-gap: 5rem;
     }
+}
+
+@media only screen and (min-width: 900px) {
+    .parent {
+        grid-template-columns: repeat(3, auto);
+        
+    }
+    
+    .on {
+        grid-gap: 10rem;
+    }
+
+    .offcard {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .card {
+        transition: 500ms;
+
+    }
+    
+}
+
+@media screen and (max-width:900px) {
+    .parent {
+        display: grid;
+        grid-template-rows: repeat(3 , auto);
+        grid-template-columns: 1;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .on {
+        grid-gap:7rem;
+    }
+
+    .oncard:nth-child(3){
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .oncard:nth-child(1) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    .oncard:nth-child(2) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .offcard {
+        grid-row: 1;
+        grid-column: 1;
+        grid-gap:0rem;
+    }
+
+    .card {
+        transition: 800ms;
+
+    }
+    
 }
