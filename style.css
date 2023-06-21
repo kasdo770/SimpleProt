@@ -1,11 +1,11 @@
 @font-face {
     font-family: KalaBold;
-    src: url(assets/Kalam-Bold.ttf);
+    src: url(assests/Kalam-Bold.ttf);
 }
 
 @font-face {
     font-family: KalaLight;
-    src: url(assets/Kalam-Light.ttf);
+    src: url(assests/Kalam-Light.ttf);
 }
 
 * {
